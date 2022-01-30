@@ -243,10 +243,10 @@ wifi_scan_result_t wifi_execute_scan( const void* context, const wifi_settings_t
     while( ( wifi_scan_done != true ) && ( wifi_scan_timeout != true ) )
     {
         /* Process Event */
-        /*if( ( ( radio_t* ) context )->event.callback != NULL )
+        if( ( ( radio_t* ) context )->event.callback != NULL )
         {
             lr1110_modem_event_process( context );
-        }*/
+        }
 
         switch( wifi_state )
         {
@@ -344,18 +344,11 @@ wifi_scan_result_t wifi_execute_scan( const void* context, const wifi_settings_t
         case WIFI_WAIT_FOR_SCAN:
         {
             /* go in low power */
-        	//HAL_Delay(10);
-        	//uint8_t*  buffer;
-        	//modem_event.event_type = LR1110_MODEM_LORAWAN_EVENT_WIFI_SCAN_DONE;
-            //modem_response_code = lr1110_modem_helper_get_event_data( context, &modem_event );
 
-        	//lr1110_modem_wifi_scan_done( buffer, 32);//modem_event.event_data.wifi.buffer,
-                    //modem_event.event_data.wifi.len );
-
-            /*if( lr1110_modem_board_read_event_line( context ) == false )
+            if( lr1110_modem_board_read_event_line( context ) == false )
             {
                 //hal_mcu_low_power_handler( );
-            }*/
+            }
             break;
         }
         }
